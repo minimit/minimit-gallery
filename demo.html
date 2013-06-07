@@ -1,0 +1,1489 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Cache-Control" content="max-age=0">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="Expires" content="Tue, 01 Jan 1980 1:00:00 GMT">
+<meta http-equiv="Pragma" content="no-cache">
+<title>Minimit Gallery Plugin</title>
+<style type="text/css">
+
+body {
+	display:block;position:absolute;
+	color:#3c3c3c;
+	font-family: sans-serif;
+	font-size:12px;
+	background:#f5f5f5;
+	left:50%;margin-left:-270px;
+	width:540px;
+}
+h1 {
+	font-size:13px;
+	line-height: 24px;
+	margin:60px 10px 10px 10px;
+}
+h2 {
+	font-family: sans-serif;
+	font-size:16px;
+	line-height: 24px;
+	margin:10px 10px 10px 10px;
+}
+a:link, a:visited {
+	text-decoration: none;
+	font-family: sans-serif;
+	color:#3c3c3c;
+	border: 2px solid #b3b3b3;
+	border-radius: 15px;
+	background: #fcfcfc;
+	width:36px;
+	height:16px;
+	padding:5px 10px 5px 10px;
+	margin:5px;
+}
+.no-touch a:hover, a:active {
+	color:#3c3c3c;
+	background:#92e8ff;
+}
+[id^="example1a-"], [id^="example1b-"], [id^="example101b-"], [id^="example2-"], [id^="example3a-"], [id^="example3b-"], [id^="example3d-"], [id^="example3f-"], [id^="example4a-"], [id^="example4b-"], [id^="example7a-"], .example7a-inside, [id^="example7b-"], .example8a-inside, [id^="example8b-"], [id^="example9-"], [id^="example10-"], [id^="example11-"], [id^="example12-"], [id^="example13-"], [id^="example14-"], [id^="example15-"] {
+	font-family: sans-serif;
+	color:#3c3c3c;
+	background: #fcfcfc;
+	border: 2px solid #b3b3b3;
+	border-radius: 15px;
+	//
+	text-decoration: none;
+	width:450px;
+	height:150px;
+	padding:10px 0px 5px 15px;
+	margin:10px;
+	font-size:20px;
+}
+[id^="example1b-"], [id^="example101b-"], [id^="example3b-"], [id^="example3d-"], [id^="example3f-"], [id^="example7b-"], [id^="example8b-"], #example2-click-prev, #example2-click-next, #example7a-click-prev, #example7a-click-next, #example9-click-prev, #example9-click-next, [id^="example12-"], [id^="example13-"], [id^="example14-"], [id^="example15-"] {
+	text-decoration: none;
+	display:block;
+	position:relative;
+	float:left;
+	width:36px;
+	height:16px;
+	font-size:12px;
+	padding:5px 0px 5px 10px;
+	margin:5px;
+}
+[id^="example4a-"], [id^="example4b-"] {
+	display:block;
+	position:relative;
+	float:left;
+	width:45px;
+	height:55px;
+}
+[id^="example9-"], [id^="example11-"] {
+	display:block;
+	position:absolute;
+	width:45px;
+	height:55px;
+}
+[id^="example10-"] {
+	display:block;
+	position:absolute;
+	width:100px;
+	height:150px;
+}
+#example10 {
+	display:block;
+	position:absolute;
+	width:560px;
+	height:230px;
+}
+[id^="example12-"] {
+	width:500px;
+	height:16px;
+	margin:0px;
+	clear:both;
+	overflow:hidden;
+	margin-top:-1px;
+	border-radius:0px;
+}
+[id^="example13-"] {
+	width:440px;
+	height:auto;
+	clear:both;
+	margin:10px;
+	border-radius:0px;
+}
+[id^="example1a-"], [id^="example2-"], [id^="example3a-"], [id^="example3b-item-"], [id^="example3d-item-"], [id^="example3f-item-"] {
+	display:block;
+	position:absolute;
+}
+.example8a-inside {
+	display:block;
+	position:relative;
+	float:left;
+}
+.example7a-inside {
+	display:block;
+	position:relative;
+	float:left;
+	clear:both;
+}
+[id^="example7a-"], [id^="example8a-"] {
+	display:block;
+	position:absolute;
+}
+[id^="example2-"], [id^="example3a-"] {
+	margin-left:-150px;
+}
+[id^="example3b-item-"], [id^="example3d-item-"], [id^="example3f-item-"] {
+	margin-left:100px;
+}
+.no-touch [id^="example1b-"]:hover, .no-touch [id^="example101b-"]:hover, .no-touch [id^="example2-"]:hover, .no-touch [id^="example3a-"]:hover, .no-touch [id^="example3b-"]:hover, .no-touch [id^="example3d-"]:hover, .no-touch [id^="example3f-"]:hover, .no-touch [id^="example4a-"]:hover, .no-touch [id^="example4b-"]:hover, .no-touch [id^="example7a-"]:hover, .no-touch [id^="example7b-"]:hover, .no-touch [id^="example8b-"]:hover, .no-touch [id^="example9-"]:hover, .no-touch [id^="example10-"]:hover, .no-touch [id^="example11-"]:hover, .no-touch [id^="example12-"]:hover, .no-touch [id^="example13-"]:hover, .no-touch [id^="example14-"]:hover, .no-touch [id^="example15-"]:hover, [id^="example1b-"].active, [id^="example101b-"].active, [id^="example3b-"].active, [id^="example3d-"].active, [id^="example3f-"].active, [id^="example4a-"].active, [id^="example4b-"].active, [id^="example7b-"].active, [id^="example8b-"].active, [id^="example9-"].active, [id^="example10-"].active, [id^="example11-"].active, [id^="example12-"].active, [id^="example13-"].active, [id^="example14-"].active, [id^="example15-"].active {
+	background:#92e8ff;
+}
+[id^="example2-"].active, [id^="example3a-"].active {
+	background:#fcfcfc;
+}
+#example3b-click-prev, #example3b-click-next, #example3d-click-prev, #example3d-click-next, #example3f-click-prev, #example3f-click-next {
+	display:block;
+	position:relative;
+	float:left;
+	margin-top:40px;
+	top:10px;
+	left:190px;
+}
+#example2-click-prev, #example2-click-next {
+	top:210px;
+	left:200px;
+}
+#example7a-click-prev, #example7a-click-next {
+	top:389px;
+}
+#example9-click-prev, #example9-click-next {
+	top:210px;
+}
+#mycounter {
+	text-decoration: none;
+	display:block;
+	position:relative;
+	float:left;
+	font-size:12px;
+	padding:5px 0px 5px 10px;
+	margin:6px 0px;
+}
+/* scrolls */
+#example10-click-scrollOut, #example9-click-scrollOut, #example7a-click-scrollOut {
+	color:#3c3c3c;
+	background: #fcfcfc;
+	
+	top:222px;
+	display:block;
+	position:relative;
+	float:left;
+	width:370px;
+	height:19px;
+	background:#e2e2e2;
+	margin:0px 10px;padding:0px;
+	border:0px solid #3c3c3c;
+}
+#example7a-click-scrollOut {
+	top:400px;
+}
+#example10-click-scrollIn, #example9-click-scrollIn, #example7a-click-scrollIn {
+	color:#3c3c3c;
+	border:2px solid #b3b3b3;
+	background: #fcfcfc;
+
+	display:block;
+	position:absolute;
+	width:60px;
+	height:15px;
+	background:#fcfcfc;
+	margin:0px;padding:0px;
+}
+.no-touch #example10-click-scrollIn:hover, #example10-click-scrollIn.active, .no-touch #example9-click-scrollIn:hover, #example9-click-scrollIn.active, .no-touch #example7a-click-scrollIn:hover, #example7a-click-scrollIn.active {
+	background:#92e8ff;
+}
+#example10-click-scrollOut {
+	z-index:999;
+	margin-top:-206px;
+	margin-left:500px;
+	width:19px;
+	height:200px;
+}
+#example10-click-scrollIn {
+	width:15px;
+	height:60px;
+}
+/* drags */
+#example7a-click-dragOut, #example8a-click-dragOut, #example9-click-dragOut, #example10-click-dragOut {
+	border-radius:20px;
+	overflow:hidden;
+	float:left;
+	width:490px;
+	height:190px;
+	left:0px;
+	margin:0px;padding:0px;
+	border:2px solid #e2e2e2;
+}
+#example7a-click-dragIn, #example8a-click-dragIn, #example9-click-dragIn, #example10-click-dragIn {
+	display:block;
+	position:absolute;
+	width:1200px;
+	height:190px;
+	margin:0px;padding:0px;
+}
+#example10-click-dragIn {
+	width:2400px;
+}
+#example9-click-dragOut {
+	opacity:0;filter:alpha(opacity=0);border-radius:0px;
+	width:520px;
+	height:210px;
+}
+#example9-click-dragIn {
+	opacity:0;filter:alpha(opacity=0);border-radius:0px;
+	height:210px;
+}
+#example10-click-dragOut {
+	z-index:900;
+	opacity:0;filter:alpha(opacity=0);border-radius:0px;
+	width:480px;
+	height:230px;
+}
+#example10-click-dragIn {
+	opacity:0;filter:alpha(opacity=0);border-radius:0px;
+	height:210px;
+}
+#example7a-click-dragOut {
+	height:378px;
+	background: transparent;
+}
+#example7a-click-dragIn {
+	border:0px solid #3c3c3c;
+	border-radius: 0px;
+	background: transparent;
+}
+
+</style>
+
+<script src="mg.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script><!-- <script src="jquery-1.7.min.js" type="text/javascript"></script> -->
+<script src="jquery.transform.min.js" type="text/javascript"></script>
+<script src="jquery.bez.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+// bezier animations
+var bez = $.bez([.19,1,.22,1]);
+var bezcss = ".19,1,.22,1";
+/* Get css3 transition and transform prefixes */
+function mg_getProperty(arr0, arr1, arr2){
+    var tmp = document.createElement("div");
+    for(var i=0, len=arr0.length; i<len; i++){
+        tmp.style[arr0[i]] = 800;
+        if(typeof tmp.style[arr0[i]] == 'string'){
+            return {
+                js: arr0[i],
+                css: arr1[i],
+                jsEnd: arr2[i]
+            };
+        }
+    }
+    return null;
+}
+function mg_getTransition(){
+    var arr0 = ["transition", "msTransition", "MozTransition", "WebkitTransition", "OTransition", "KhtmlTransition"];
+    var arr1 = ["transition", "-ms-transition", "-moz-transition", "-webkit-transition", "-o-transition", "-khtml-transition"];
+    var arr2 = ["transitionend", "MSTransitionEnd", "transitionend", "webkitTransitionEnd", "oTransitionEnd", "khtmlTransitionEnd"];
+    return mg_getProperty(arr0, arr1, arr2);
+}
+function mg_getTransform(){
+    var arr0 = ["transform", "msTransform", "MozTransform", "WebkitTransform", "OTransform", "KhtmlTransform"];
+    var arr1 = ["transform", "-ms-transform", "-moz-transform", "-webkit-transform", "-o-transform", "-khtml-transform"];
+    return mg_getProperty(arr0, arr1, []);
+}
+function mg_getPerspective(){
+    var arr0 = ["perspective", "msPerspective", "MozPerspective", "WebkitPerspective", "OPerspective", "KhtmlPerspective"];
+    var arr1 = ["perspective", "-ms-perspective", "-moz-perspective", "-webkit-perspective", "-o-perspective", "-khtml-perspective"];
+    return mg_getProperty(arr0, arr1, []);
+}
+var transition = mg_getTransition();
+var transform = mg_getTransform();
+var perspective = mg_getPerspective();
+
+</script>
+
+
+</head>
+<body>
+<script type="text/javascript">if('ontouchstart' in document){}else{ document.getElementsByTagName("body")[0].className = "no-touch"; }</script> <!-- remove css hover on touch devices -->
+
+<img src="logo.png" />
+
+<h2>Minimit Gallery Demo. Go to the <a href="http://www.minimit.com/works/minimit-gallery-plugin">plugin page</a> for the source code.</h2>
+
+<h1>You can link two or more interactive slides. You can set automatic timing.</h1>
+
+<div id="example1a-item-0">0</div>
+<div id="example1a-item-1">1</div>
+<div id="example1a-item-2">2</div>
+<div id="example1a-item-3">3</div>
+<div id="example1a-item-4">4</div>
+<div id="example1a-item-5">5</div>
+
+<div style="clear:both;height:200px;"></div>
+
+<div id="example1b-click-prev">Prev</div>
+<div id="example1b-item-0">0</div>
+<div id="example1b-item-1">1</div>
+<div id="example1b-item-2">2</div>
+<div id="example1b-item-3">3</div>
+<div id="example1b-item-4">4</div>
+<div id="example1b-item-5">5</div>
+<div id="example1b-click-next">Next</div>
+
+<div style="clear:both;"></div>
+
+<script type="text/javascript">
+
+$('[id^="example1a-item-"]').css("display","block").css("position","absolute").css("opacity",0).css("z-index","0");
+
+var example1a = new Mg({
+	reference:"example1a",
+	click:{
+		activated:[0]
+	}
+});
+example1a.click.onEvent = function(){
+	var path=$("#"+this.reference+"-item-"+this.deactivated); 
+	path.css("z-index","0");
+	path.stop().animate({opacity:0},{queue:true, duration:1600, specialEasing: {opacity: bez}});
+	var path=$("#"+this.reference+"-item-"+this.activated);
+	path.css("z-index","2").css("opacity",0);
+	path.stop().animate({opacity:1},{queue:true, duration:1600, specialEasing: {opacity: bez}});
+}
+example1a.init();
+
+//
+
+var example1b = new Mg({
+	reference:"example1b",
+	click:{
+		activated:[0],
+		interactive:true,
+		linked:[example1a.click],
+		auto:1000, autoSlow:5000
+	}
+});
+example1b.click.onEvent = function(){
+	$("#"+this.reference+"-item-"+this.deactivated).removeClass("active");
+	$("#"+this.reference+"-item-"+this.activated).addClass("active");
+}
+example1b.init();
+
+</script>
+
+<h1>Define prev next first last buttons, also use show and hide functions for buttons.</h1>
+
+<div style="display:block;position:relative;top:5px;">
+	<div id="example101b-click-first">First</div>
+	<div id="example101b-click-prev">Prev</div>
+	<div id="example101b-item-0">0</div>
+	<div id="example101b-item-1">1</div>
+	<div id="example101b-item-2">2</div>
+	<div id="example101b-item-3">3</div>
+	<div id="example101b-click-next">Next</div>
+	<div id="example101b-click-last">Last</div>
+	<div id="mycounter">Page X of X</div>
+</div>
+
+<div style="clear:both;"></div>
+
+<script type="text/javascript">
+
+var example101b = new Mg({
+	reference:"example101b",
+	click:{
+		activated:[0],
+		interactive:true
+	}
+});
+example101b.click.onEvent = function(){
+	$("#"+this.reference+"-item-"+this.deactivated).removeClass("active");
+	$("#"+this.reference+"-item-"+this.activated).addClass("active");
+	// set counter numbers
+	$("#mycounter").html("Page "+(parseFloat(this.activated)+1)+" of "+$('[id^="'+this.reference+'-item-"]').length);
+}
+example101b.click.prevHide = function(){
+	$("#"+this.reference+"-click-prev").css("visibility","hidden");
+	$("#"+this.reference+"-click-first").css("visibility","hidden");
+}
+example101b.click.prevShow = function(){
+	$("#"+this.reference+"-click-prev").css("visibility","visible");
+	$("#"+this.reference+"-click-first").css("visibility","visible");
+}
+example101b.click.nextHide = function(){
+	$("#"+this.reference+"-click-next").css("visibility","hidden");
+	$("#"+this.reference+"-click-last").css("visibility","hidden");
+}
+example101b.click.nextShow = function(){
+	$("#"+this.reference+"-click-next").css("visibility","visible");
+	$("#"+this.reference+"-click-last").css("visibility","visible");
+}
+example101b.init();
+
+</script>
+
+<h1>With "multiLess" and "multiPlus" you set how many additional items to show.<br/>With "firstToSteps" and "lastToSteps" you can push the gallery to the limits.</h1>
+
+<div id="example2-item-0">0</div>
+<div id="example2-item-1">1</div>
+<div id="example2-item-2">2</div>
+<div id="example2-item-3">3</div>
+<div id="example2-item-4">4</div>
+<div id="example2-item-5">5</div>
+
+<div style="clear:both;"></div>
+
+<div id="example2-click-prev">Prev</div>
+<div id="example2-click-next">Next</div>
+
+<div style="clear:both;height:200px;"></div>
+
+<script type="text/javascript">
+
+var example2 = new Mg({
+	reference:"example2",
+	click:{
+		activated:[-1],
+		firstToSteps:true, lastToSteps:true,
+		prevSteps:1, nextSteps:1,
+		interactive:true,
+		multiLess:2, multiPlus:2
+	}
+});
+example2.click.onEvent = function(){
+	$("#"+this.reference+"-item-"+this.deactivated).removeClass("active");
+	$("#"+this.reference+"-item-"+this.activated).addClass("active");
+	$('[id^="'+this.reference+'-item-"]').css("display","none");
+	//
+	var arr = this.multiActivated;
+	for(var i=0;i<arr.length;i++){
+		var depth = Math.abs(example2.mapDistanceReverse(this.multiPlus, i, arr.length, 0)); // Parameters: center, num, max, min
+		var path = $("#"+this.reference+"-item-"+arr[i]);
+		path.css("position","absolute").css("z-index",depth);
+		path.css("display","block").css("position","absolute").css("left",(i*80)+"px");
+	}
+}
+example2.init();
+
+</script>
+
+<h1>For advanced multi items animations use the others "multi" variables.<br/>Example with multiMode "centered" with "useLinkHash".</h1>
+
+<div style="display:block;position:relative;top:-50px;">
+	<div id="example3a-item-0" href="#!anchor0" title="mytitle0">0</div>
+	<div id="example3a-item-1" href="#!anchor1" title="mytitle1">1</div>
+	<div id="example3a-item-2" href="#!anchor2" title="mytitle2">2</div>
+	<div id="example3a-item-3" href="#!anchor3" title="mytitle3">3</div>
+	<div id="example3a-item-4" href="#!anchor4" title="mytitle4">4</div>
+	<div id="example3a-item-5" href="#!anchor5" title="mytitle5">5</div>
+	<div id="example3a-item-6" href="#!anchor6">6</div>
+	<div id="example3a-item-7" href="#!anchor7">7</div>
+</div>
+
+<div style="clear:both;height:200px;"></div>
+
+<div id="example3b-item-0">0</div>
+<div id="example3b-item-1">1</div>
+<div id="example3b-item-2">2</div>
+<div id="example3b-item-3">3</div>
+<div id="example3b-item-4">4</div>
+<div id="example3b-item-5">5</div>
+<div id="example3b-item-6">6</div>
+<div id="example3b-item-7">7</div>
+<div id="example3b-click-prev">Prev</div>
+<div id="example3b-click-next">Next</div>
+
+<div style="clear:both;"></div>
+
+<h1>Example with multiMode "fixed" with "useAnchor".</h1>
+
+<div style="display:block;position:relative;top:5px;">
+	<div id="example3d-item-0">0</div>
+	<div id="example3d-item-1">1</div>
+	<div id="example3d-item-2">2</div>
+	<div id="example3d-item-3">3</div>
+	<div id="example3d-item-4">4</div>
+	<div id="example3d-item-5">5</div>
+	<div id="example3d-item-6">6</div>
+	<div id="example3d-item-7">7</div>
+	<div id="example3d-click-prev">Prev</div>
+	<div id="example3d-click-next">Next</div>
+</div>
+
+<div style="clear:both;"></div>
+
+<h1>Example with multiMode "flexible" with "useAnchor".</h1>
+
+<div style="display:block;position:relative;top:5px;">
+	<div id="example3f-item-0">0</div>
+	<div id="example3f-item-1">1</div>
+	<div id="example3f-item-2">2</div>
+	<div id="example3f-item-3">3</div>
+	<div id="example3f-item-4">4</div>
+	<div id="example3f-item-5">5</div>
+	<div id="example3f-item-6">6</div>
+	<div id="example3f-item-7">7</div>
+	<div id="example3f-click-prev">Prev</div>
+	<div id="example3f-click-next">Next</div>
+</div>
+
+<div style="clear:both;"></div>
+
+<script type="text/javascript">
+
+$('[id^="example3a-item-"]').css("display","block").css("position","absolute").css("opacity",0).css("display","none");
+var example3a = new Mg({
+	reference:"example3a",
+	click:{
+		activated:[0],
+		cycle:true,
+		multiMode:'centered',
+		interactive:true,
+        anchorize:"useLinkHash",
+		multiLess:2, multiPlus:2
+	}
+});
+
+example3a.click.onEvent = function(){
+	$("#"+this.reference+"-item-"+this.deactivated).removeClass("active");
+	$("#"+this.reference+"-item-"+this.activated).addClass("active");
+	var pause = 200;
+	//
+	var arr = this.multiBeforeOut;
+	for(var i=0;i<arr.length;i++){
+		var path = $("#"+this.reference+"-item-"+arr[i]);
+		path.clearQueue().stop();
+		if(this.multiBeforeOut.length >= this.multiActivated.length){path.delay(i*pause);}
+		path.animate({top:120, left:-160,opacity:0, width:0, height:0},{queue:true, duration:1200, specialEasing: {top:bez, left:bez, opacity:bez, width:bez, height:bez}, complete:function(){$(this).css("display","none");}});
+	}
+	var arr = this.multiAfterOut;
+	for(var i=0;i<arr.length;i++){
+		var path = $("#"+this.reference+"-item-"+arr[i]);
+		path.clearQueue().stop();
+		if(this.multiAfterOut.length >= this.multiActivated.length){path.delay(i*pause);}
+		path.animate({top:120, left:450*2,opacity:0, width:0, height:0},{queue:true, duration:1200, specialEasing: {top:bez, left:bez, opacity:bez, width:bez, height:bez}, complete:function(){$(this).css("display","none");}}); // *2 cause of resizing
+	}
+	var arr = this.multiBeforeIn;
+	for(var i=0;i<arr.length;i++){
+		var path = $("#"+this.reference+"-item-"+arr[i]);
+		path.clearQueue().stop().css("left",-160).css("display","block").css("opacity",0).css("width",0).css("height",0).css("top",120);
+	}
+	var arr = this.multiAfterIn;
+	for(var i=0;i<arr.length;i++){
+		var path = $("#"+this.reference+"-item-"+arr[i]);
+		path.clearQueue().stop().css("left",450*2).css("display","block").css("opacity",0).css("width",0).css("height",0).css("top",120); // *2 cause of resizing
+	}
+	var arr = this.multiActivated;
+	for(var i=0;i<arr.length;i++){
+		var depth = Math.abs(example3a.mapDistanceReverse(this.multiPlus, i, arr.length, 0));
+		var path = $("#"+this.reference+"-item-"+arr[i]);
+		path.css("display","block");
+		if(this.direction){path.clearQueue().stop().delay((i+this.distance)*pause);}else{path.clearQueue().stop().delay((this.multiPlus*2-(i+this.distance))*pause);} // gives delay
+		if(i>arr.length/2){var widthchange=450-(depth+3)*90;}else{var widthchange=0;} // width and height changes cause of resizing
+		path.animate({top:150-(depth+3)*20, left:i*80+widthchange, opacity:1, width:(depth+3)*90, height:(depth+3)*30},{queue:true, duration:1200, specialEasing: {top:bez, left:bez, opacity:bez, width:bez, height:bez}});
+		//
+		var ie = navigator.userAgent.toLowerCase().match(/MSIE\s+([\d\.]+)/i);
+    	if(ie && !(ie[1] < "9.0")){ // ie <9.0 has problem animating z-index
+			path.css("z-index",depth);
+		}else{
+			path.animate({zIndex:depth},{queue:false, duration:600+Math.abs(this.distance*100), specialEasing: {zIndex:bez}}); // duration half of the animate to have a nice swap
+		}
+		if(this.deactivated == undefined){path.css("z-index", depth)}; // this is the first call where deactivated is undefined
+	}
+}
+
+//
+
+$('[id^="example3b-item-"]').css("display","block").css("position","absolute").css("opacity",0).css("display","none");
+var example3b = new Mg({
+	reference:"example3b",
+	click:{
+		activated:[0],
+		cycle:true,
+		multiMode:'centered',
+		interactive:true,
+		linked:[example3a.click],
+		multiLess:2, multiPlus:2
+	}
+});
+
+$('[id^="example3d-item-"]').css("display","block").css("position","absolute").css("opacity",0).css("display","none");
+var example3d = new Mg({
+	reference:"example3d",
+	click:{
+		activated:[0],
+		cycle:true,
+		multiMode:'fixed', fixedLess:1, fixedPlus:1,
+		interactive:true,
+		multiLess:2, multiPlus:2,
+        anchorize:"useAnchor"
+	}
+});
+
+$('[id^="example3f-item-"]').css("display","block").css("position","absolute").css("opacity",0).css("display","none");
+var example3f = new Mg({
+	reference:"example3f",
+	click:{
+		activated:[0],
+		cycle:true,
+		multiMode:'flexible',
+		interactive:true,
+		multiLess:2, multiPlus:2,
+        anchorize:"useAnchor"
+	}
+});
+
+example3b.click.onEvent = example3d.click.onEvent = example3f.click.onEvent = function(){
+	$("#"+this.reference+"-item-"+this.deactivated).removeClass("active");
+	$("#"+this.reference+"-item-"+this.activated).addClass("active");
+	var pause = 200;
+	//
+	var arr = this.multiBeforeOut;
+	for(var i=0;i<arr.length;i++){
+		var path = $("#"+this.reference+"-item-"+arr[i]);
+		path.clearQueue().stop();
+		path.animate({left:-160,opacity:0},{queue:true, duration:1200, specialEasing: {left:bez, opacity:bez}, complete:function(){$(this).css("display","none");}});
+	}
+	var arr = this.multiAfterOut;
+	for(var i=0;i<arr.length;i++){
+		var path = $("#"+this.reference+"-item-"+arr[i]);
+		path.clearQueue().stop();
+		path.animate({left:450,opacity:0},{queue:true, duration:1200, specialEasing: {left:bez, opacity:bez}, complete:function(){$(this).css("display","none");}});
+	}
+	var arr = this.multiBeforeIn;
+	for(var i=0;i<arr.length;i++){
+		var path = $("#"+this.reference+"-item-"+arr[i]);
+		path.clearQueue().stop().css("left",-160).css("display","block").css("opacity",0);
+	}
+	var arr = this.multiAfterIn;
+	for(var i=0;i<arr.length;i++){
+		var path = $("#"+this.reference+"-item-"+arr[i]);
+		path.clearQueue().stop().css("left",450).css("display","block").css("opacity",0);
+	}
+	var arr = this.multiActivated;
+	for(var i=0;i<arr.length;i++){
+		var depth = Math.abs(example3b.mapDistance(this.multiPlus, i)); // Parameters: center, num
+		var path = $("#"+this.reference+"-item-"+arr[i]);
+		path.css("z-index", depth).css("display","block");
+		path.clearQueue().stop();
+		path.animate({left:i*60, opacity:1},{queue:true, duration:1200, specialEasing: {left: bez, opacity: bez}});
+	}
+}
+example3b.init();
+example3d.init();
+example3f.init();
+
+example3a.setSettings({
+	click:{
+		linked:[example3b.click]
+	}
+});
+example3a.init();
+</script>
+
+<h1>For more active states set "maxActivated" and use "activated" variable as an array.</h1>
+
+<div id="example4a-item-0">0</div>
+<div id="example4a-item-1">1</div>
+<div id="example4a-item-2">2</div>
+<div id="example4a-item-3">3</div>
+<div id="example4a-item-4">4</div>
+
+<div style="clear:both;"></div>
+
+<div id="example4b-item-0">0</div>
+<div id="example4b-item-1">1</div>
+<div id="example4b-item-2">2</div>
+<div id="example4b-item-3">3</div>
+<div id="example4b-item-4">4</div>
+	
+<div style="clear:both;"></div>
+
+<script type="text/javascript">
+
+var example4a = new Mg({
+	reference:"example4a",
+	click:{
+		activated:[3,0,1],
+		cycle:true,
+		interactive:true,
+		maxActivated:3,
+		deactivable:true
+	}
+});
+var example4b = new Mg({
+	reference:"example4b",
+	click:{
+		activated:[3,0,1],
+		cycle:true,
+		interactive:true,
+		linked:[example4a.click],
+		maxActivated:3,
+		deactivable:true
+	}
+});
+example4a.setSettings({
+	click:{
+		linked:[example4b.click]
+	}
+});
+example4a.click.onEvent = example4b.click.onEvent = function(){
+	var path=$("#"+this.reference+"-item-"+this.deactivated);
+	path.removeClass("active");
+	path.stop().animate({top:'0'},{queue:true, duration:300, specialEasing: {top: bez}});
+	//
+	for(var i=0;i<this.activated.length;i++){ // the activated variable hold the selected items based on max_activated
+		var path=$("#"+this.reference+"-item-"+this.activated[i]);
+		path.addClass("active");
+		path.stop().animate({top:'-10'},{queue:true, duration:300, specialEasing: {top: bez}});
+	}
+}
+example4a.init();
+example4b.init();
+
+</script>
+
+<h1>Next 4 examples use Css3 transitions and transformation for supported browser. They have amazing performances especially on Iphone and Ipad.</h1>
+
+<h1>Define a scroll by setting ScrollIn and ScrollOut, define a drag by setting DragIn and DragOut. The In is the dragged one, the Out is the bounding box.</h1>
+
+<div style="display:block;position:relative;">
+	<div id="example9-click-dragOut"><div id="example9-click-dragIn"></div></div>
+	<div id="example9-item-0">0</div>
+	<div id="example9-item-1">1</div>
+	<div id="example9-item-2">2</div>
+	<div id="example9-item-3">3</div>
+	<div id="example9-item-4">4</div>
+	<div id="example9-item-5">5</div>
+	<div id="example9-item-6">6<a href="http://www.google.com">a</a></div>
+	<div id="example9-item-7">7</div>
+	<div id="example9-item-8">8</div>
+	<div id="example9-item-9">9</div>
+	<div id="example9-item-10">10</div>
+	<div id="example9-item-11">11</div>
+	<div id="example9-item-12">12</div>
+	<div id="example9-item-13">13</div>
+	<div id="example9-item-14">14</div>
+	<div style="clear:both;"></div>
+	<div id="example9-click-prev">Prev</div>
+	<div id="example9-click-scrollOut"><div id="example9-click-scrollIn"></div></div>
+	<div id="example9-click-next">Next</div>
+</div>
+	
+<div style="clear:both;height:200px;"></div>
+
+<script type="text/javascript">
+
+var example9 = new Mg({
+	reference:"example9",
+	click:{
+		activated:[6],
+		cycle:true,
+		interactive:true,
+		multiLess:7, multiPlus:7,
+		scrollWheel:true, dragWheel:true
+	}
+});
+example9.click.onEvent = function(){
+	var arr = this.multiActivated;
+	var alpha = Math.PI*2/(arr.length);
+	var xradius = 200;
+	var yradius = 60;
+	for (var i=0;i<arr.length;i++){
+		var path = $("#"+this.reference+"-item-"+ arr[i]);
+		if(arr[i]==this.activated){
+			var depth = 0;
+		} else {
+			var depth = example9.mapDistanceReverse(this.multiPlus, i, arr.length, 0);
+		}
+		//
+		var theta = alpha*(this.activated-arr[i]-depth/6)+1.6; // -depth/6 will give additional distance based on depth: it gives space for activated
+		var x = 20+xradius+Math.cos(theta)*xradius;
+		var y = yradius+Math.sin(theta)*yradius;
+		var w = h = y/4;
+		var scale = 0.2+y/140;
+		if(arr[i]==this.activated){scale = 1.5; y-=30;}
+		path.clearQueue().stop().css("z-index", Math.round(y/10));
+		if(perspective && transition){
+			path.css(transition.css, transform.css+" 1.3s cubic-bezier("+bezcss+")");
+			path.css(transform.css, "translate3d("+x+"px,"+y+"px,0) scale("+scale+")");
+		}else{
+			path.animate({transformJ:'translate('+x+','+y+') scale('+scale+')'},{queue:true, duration:1300, specialEasing: {transformJ:bez}});
+		}
+	}
+	$("#"+this.reference+"-item-"+this.deactivated).removeClass("active");
+	$("#"+this.reference+"-item-"+this.activated).addClass("active").css("z-index",100);
+}
+
+example9.click.scrollClick = function(){
+	var path = $("#"+this.reference+"-click-scrollIn");
+	path.addClass("active");
+}
+example9.click.scrollMove = function(){
+	var path = $("#"+this.reference+"-click-scrollIn");
+	if(perspective && transition){
+		path.css(transition.css, transform.css+" 0s");
+		path.css(transform.css, "translate3d("+this.scrollPosition+"px,0,0)");
+	}else{
+		path.clearQueue().stop().animate({left:this.scrollPosition},{queue:true, duration:0, specialEasing: {left:bez}});
+	}
+}
+example9.click.scrollRelease = function(){
+	var path = $("#"+this.reference+"-click-scrollIn");
+	path.removeClass("active");
+	if(perspective && transition){
+		path.css(transition.css, transform.css+" 1.2s cubic-bezier("+bezcss+") 0s");
+		path.css(transform.css, "translate3d("+this.scrollPosition+"px,0,0)");
+	}else{
+		path.clearQueue().stop().animate({left:this.scrollPosition},{queue:true, duration:300, specialEasing: {left:bez}});
+	}
+}
+example9.click.dragMove = function(){
+	var path = $("#"+this.reference+"-click-dragIn");
+	if(perspective && transition){
+		path.css(transition.css, transform.css+" 0s");
+		path.css(transform.css, "translate3d("+this.dragPosition+"px,0,0)");
+	}else{
+		path.clearQueue().stop().animate({left:this.dragPosition},{queue:true, duration:0, specialEasing: {left:bez}});
+	}
+}
+example9.click.dragRelease = function(){
+	var path = $("#"+this.reference+"-click-dragIn");
+	if(perspective && transition){
+		path.css(transition.css, transform.css+" 1.2s cubic-bezier("+bezcss+") 0s");
+		path.css(transform.css, "translate3d("+this.dragPosition+"px,0,0)");
+	}else{
+		path.clearQueue().stop().animate({left:this.dragPosition},{queue:true, duration:300, specialEasing: {left:bez}});
+	}
+}
+
+example9.init();
+
+</script>
+
+<h1>Example with "dragFraction:true" where the drag triggers onEvent at each pixel, so you can code the animation using "this.fraction", swipe support is automatic.</h1>
+
+<div id="example10-click-dragOut"><div id="example10-click-dragIn"></div></div>
+<div id="example10-click-scrollOut"><div id="example10-click-scrollIn"></div></div>
+<div id="example10">
+	<div id="example10-item-0">0</div>
+	<div id="example10-item-1">1</div>
+	<div id="example10-item-2">2</div>
+	<div id="example10-item-3">3</div>
+	<div id="example10-item-4">4</div>
+	<div id="example10-item-5">5</div>
+	<div id="example10-item-6">6</div>
+	<div id="example10-item-7">7</div>
+	<div id="example10-item-8">8</div>
+	<div id="example10-item-9">9</div>
+</div>
+
+<div style="clear:both;height:200px;"></div>
+
+<script type="text/javascript">
+
+if(perspective){$("#example10").css(perspective.css,400).css(perspective.css+"-origin","200px 100px");}
+$('[id^="example10-item-"]').css("opacity",0);
+$('[id^="example10-item-"]').each(function(i){
+	var path = $(this);
+	if(i<6){var x = -40;}else{var x = -380;}
+	if(perspective && transition){
+		path.css(transition.css, "all 0s linear 0s");
+		path.css(transform.css, "translate3d("+x+"px, 20px,0) scale(0.5)");
+		path.css("z-index",0).css("opacity",0);
+	}else{
+		path.clearQueue().stop().animate({transformJ:'translate('+x+',20) scale(0.5)', opacity:0},{queue:true, duration:0, specialEasing: {transformJ:bez, opacity:bez}});
+		path.css("z-index",0);
+	}
+});
+
+var example10 = new Mg({
+	reference:"example10",
+	click:{
+		activated:[6],
+		interactive:true,
+		multiLess:3, multiPlus:3, dragFraction:true,
+		scrollWheel:true, dragWheel:true, 
+		scrollIsVertical:true
+	}
+});
+example10.click.onEvent = function(){
+	var arr = this.multiBeforeOut;
+	for(var i=0;i<arr.length;i++){
+		var path = $("#"+this.reference+"-item-"+arr[i]);
+		if(perspective && transition){
+			path.css(transition.css, transform.css+" 1.3s cubic-bezier("+bezcss+") 0s"+", opacity 1.3s cubic-bezier("+bezcss+") 0s");
+			path.css(transform.css, "translate3d(-40px, 20px,0) scale(0.5)");
+			path.css("z-index",0).css("opacity",0);
+		}else{
+			path.clearQueue().stop().animate({transformJ:'translate(-40,20) scale(0.5)', opacity:0},{queue:true, duration:1300, specialEasing: {transformJ:bez, opacity:bez}});
+			path.css("z-index",0);
+		}
+	}
+	var arr = this.multiAfterOut;
+	for(var i=0;i<arr.length;i++){
+		var path = $("#"+this.reference+"-item-"+arr[i]);
+		if(perspective && transition){
+			path.css(transition.css, transform.css+" 1.3s cubic-bezier("+bezcss+") 0s"+", opacity 1.3s cubic-bezier("+bezcss+") 0s");
+			path.css(transform.css, "translate3d(380px, 20px,0) scale(0.5)");
+			path.css("z-index",0).css("opacity",0);
+		}else{
+			path.clearQueue().stop().animate({transformJ:'translate(380,20) scale(0.5)', opacity:0},{queue:true, duration:1300, specialEasing: {transformJ:bez, opacity:bez}});
+			path.css("z-index",0);
+		}
+	}
+	var arr = this.multiActivated;
+	var xspace = 0;
+	var add = 0;
+	var fraction = this.fraction;
+	for(var i=0;i<arr.length;i++){
+		var path = $("#"+this.reference+"-item-"+ arr[i]);
+		if(i==this.multiLess){add += 100*(1-fraction);}
+		var x = xspace+add;
+		if(i<this.multiLess){var rot = 20;var depth = 100+i;var scale = 0.8+(i/10);}else{var rot = -20;var depth = 200-i;var scale = 1-((i-this.multiLess-1)/10);}
+		if(i==this.multiLess){add += 100*fraction; rot = -20+(40*fraction);}
+		xspace += add;
+		add = 40;
+		//
+		if(this.eventType == "fraction" && i==this.multiLess){
+			var speed = 0;
+		}else{
+			var speed = 1.3;
+		}
+		if(perspective && transition){
+			path.css(transition.css, transform.css+" "+speed+"s cubic-bezier("+bezcss+") 0s"+", opacity "+speed+"s cubic-bezier("+bezcss+") 0s");
+			path.css(transform.css, "translate3d("+x+"px,20px,0) rotateY("+rot+"deg) scale("+scale+")");
+			path.css("z-index",depth).css("opacity",100);
+		}else{
+			path.clearQueue().stop().animate({transformJ:'translate('+x+',20) scale('+scale+')', opacity:1},{queue:true, duration:speed*1000, specialEasing: {transformJ:bez, opacity:bez}});
+			path.css("z-index",depth);
+		}
+	}
+}
+example10.click.scrollClick = function(){
+	var path = $("#"+this.reference+"-click-scrollIn");
+	path.addClass("active");
+}
+example10.click.scrollMove = function(){
+	var path = $("#"+this.reference+"-click-scrollIn");
+	if(perspective && transition){
+		path.css(transition.css, transform.css+" 0s");
+		path.css(transform.css, "translate3d(0,"+this.scrollPosition+"px,0)");
+	}else{
+		path.clearQueue().stop().animate({top:this.scrollPosition},{queue:true, duration:0, specialEasing: {top:bez}});
+	}
+}
+example10.click.scrollRelease = function(){
+	var path = $("#"+this.reference+"-click-scrollIn");
+	path.removeClass("active");
+	if(perspective && transition){
+		path.css(transition.css, transform.css+" 1.2s cubic-bezier("+bezcss+") 0s");
+		path.css(transform.css, "translate3d(0,"+this.scrollPosition+"px,0)");
+	}else{
+		path.clearQueue().stop().animate({top:this.scrollPosition},{queue:true, duration:300, specialEasing: {top:bez}});
+	}
+}
+example10.click.dragMove = function(){
+	var path = $("#"+this.reference+"-click-dragIn");
+	if(perspective && transition){
+		path.css(transition.css, transform.css+" 0s");
+		path.css(transform.css, "translate3d("+this.dragPosition+"px,0,0)");
+	}else{
+		path.clearQueue().stop().animate({left:this.dragPosition},{queue:true, duration:0, specialEasing: {left:bez}});
+	}
+}
+example10.click.dragRelease = function(){
+	var path = $("#"+this.reference+"-click-dragIn");
+	if(perspective && transition){
+		path.css(transition.css, transform.css+" 1.2s cubic-bezier("+bezcss+") 0s");
+		path.css(transform.css, "translate3d("+this.dragPosition+"px,0,0)");
+	}else{
+		path.clearQueue().stop().animate({left:this.dragPosition},{queue:true, duration:300, specialEasing: {left:bez}});
+	}
+}
+example10.init();
+
+</script>
+
+<h1>Example with drag and linked on a gallery without items. With them you have to set "totalItems" argument to have proper linking, scroll or drag.</h1>
+
+<div id="example8a-click-dragOut">
+	<div id="example8a-click-dragIn">
+		<div class="example8a-inside">0<a href="http://www.google.com">link example</a></div>
+		<div class="example8a-inside">1</div>
+		<div class="example8a-inside">2</div>
+		<div class="example8a-inside">3</div>
+		<div class="example8a-inside">4</div>
+		<div class="example8a-inside">5</div>
+	</div>
+</div>
+
+<div style="clear:both;height:200px;"></div>
+
+<div id="example8b-click-prev">Prev</div>
+<div id="example8b-item-0">0</div>
+<div id="example8b-item-1">1</div>
+<div id="example8b-item-2">2</div>
+<div id="example8b-item-3">3</div>
+<div id="example8b-item-4">4</div>
+<div id="example8b-item-5">5</div>
+<div id="example8b-click-next">Next</div>
+
+<div style="clear:both;"></div>
+
+<script type="text/javascript">
+		
+var l = $(".example8a-inside").length;
+$('#example8a-click-dragIn').css("width",490*(l));
+
+var example8a = new Mg({
+	reference:"example8a",
+	totalItems:l,
+	click:{
+		activated:[0]
+	}
+});
+example8a.click.dragMove = function(){
+	var path = $("#"+this.reference+"-click-dragIn");
+	if(transition){
+		path.css(transition.css, transform.css+" 0s");
+		path.css(transform.css, "translate("+this.dragPosition+"px,0)");
+	}else{
+		path.clearQueue().stop().animate({left:this.dragPosition},{queue:true, duration:0, specialEasing: {left:bez}});
+	}
+}
+example8a.click.dragRelease = function(){
+	var path = $("#"+this.reference+"-click-dragIn");
+	if(transition){
+		path.css(transition.css, transform.css+" 1.2s cubic-bezier("+bezcss+") 0s");
+		path.css(transform.css, "translate("+this.dragPosition+"px,0)");
+	}else{
+		path.clearQueue().stop().animate({left:this.dragPosition},{queue:true, duration:1200, specialEasing: {left:bez}});
+	}
+}
+example8a.init();
+
+//
+
+var example8b = new Mg({
+	reference:"example8b",
+	click:{
+		activated:[0],
+		cycle:true,
+		interactive:true,
+		linked:[example8a.click]
+	}
+});
+example8b.click.onEvent = function(){
+	$("#"+this.reference+"-item-"+this.deactivated).removeClass("active");
+	$("#"+this.reference+"-item-"+this.activated).addClass("active");
+}
+example8b.init();
+
+example8a.setSettings({
+	click:{
+		linked:[example8b.click]
+	}
+});
+
+</script>
+
+<h1>Example with horizontal scroll and vertical drag on a gallery without items, that shows 2 items but drags and scroll 1 item at time, based on totalItems.</h1>
+
+<div id="example7a-click-dragOut">
+	<div id="example7a-click-dragIn">
+		<div class="example7a-inside">0</div>
+		<div class="example7a-inside">1</div>
+		<div class="example7a-inside">2</div>
+		<div class="example7a-inside">3</div>
+		<div class="example7a-inside">4</div>
+		<div class="example7a-inside">5</div>
+	</div>
+</div>
+
+<div id="example7a-click-prev">Prev</div>
+<div id="example7a-click-scrollOut"><div id="example7a-click-scrollIn"></div></div>
+<div id="example7a-click-next">Next</div>
+
+<div style="clear:both;height:400px;"></div>
+
+<script type="text/javascript">
+
+var l = $(".example7a-inside").length;
+$('#example7a-click-dragIn').css("height",189*(l));
+
+var example7a = new Mg({
+	reference:"example7a",
+	totalItems:l,
+	click:{
+		activated:[0],
+		cycle:true,
+		prevSteps:2, nextSteps:2,
+		lastToSteps:true,
+		dragIsVertical:true
+	}
+});
+
+example7a.click.dragMove = function(){
+	var path = $("#"+this.reference+"-click-dragIn");
+	if(transition){
+		path.css(transition.css, transform.css+" 0s");
+		path.css(transform.css, "translateY("+this.dragPosition+"px)");
+	}else{
+		path.clearQueue().stop().animate({top:this.dragPosition},{queue:true, duration:0, specialEasing: {top:bez}});
+	}
+}
+example7a.click.dragRelease = function(){
+	var path = $("#"+this.reference+"-click-dragIn");
+	if(transition){
+		path.css(transition.css, transform.css+" 1.2s cubic-bezier("+bezcss+") 0s");
+		path.css(transform.css, "translateY("+this.dragPosition+"px)");
+	}else{
+		path.clearQueue().stop().animate({top:this.dragPosition},{queue:true, duration:1200, specialEasing: {top:bez}});
+	}
+}
+example7a.click.scrollClick = function(){
+	var path = $("#"+this.reference+"-click-scrollIn");
+	path.addClass("active");
+}
+example7a.click.scrollMove = function(){
+	var path = $("#"+this.reference+"-click-scrollIn");
+	if(transition){
+		path.css(transition.css, transform.css+" 0s");
+		path.css(transform.css, "translateX("+this.scrollPosition+"px)");
+	}else{
+		path.clearQueue().stop().animate({left:this.scrollPosition},{queue:true, duration:0, specialEasing: {left:bez}});
+	}
+}
+example7a.click.scrollRelease = function(){
+	var path = $("#"+this.reference+"-click-scrollIn");
+	path.removeClass("active");
+	if(transition){
+		path.css(transition.css, transform.css+" 1.2s cubic-bezier("+bezcss+") 0s");
+		path.css(transform.css, "translateX("+this.scrollPosition+"px)");
+	}else{
+		path.clearQueue().stop().animate({left:this.scrollPosition},{queue:true, duration:1200, specialEasing: {left:bez}});
+	}
+}
+
+example7a.init();
+
+</script>
+
+<h1>About other implementations you can build nice menus ...</h1>
+
+<div id="example11-item-0">0</div>
+<div id="example11-item-1">1</div>
+<div id="example11-item-2">2</div>
+<div id="example11-item-3">3</div>
+<div id="example11-item-4">4</div>
+<div id="example11-item-5">5</div>
+<div id="example11-item-6">6</div>
+<div id="example11-item-7">7</div>
+<div id="example11-item-8">8</div>
+
+<div style="clear:both;height:80px;"></div>
+
+<script type="text/javascript">
+
+var example11 = new Mg({
+	reference:"example11",
+	click:{
+		activated:[0],
+		interactive:true,
+		multiLess:2, multiPlus:2
+	},
+	mouseover:{
+		activated:[0],
+		interactive:true,
+		multiLess:2, multiPlus:2
+	},
+	mouseout:{
+		activated:[0],
+		interactive:true,
+		multiLess:2, multiPlus:2
+	}
+});
+example11.click.onEvent = function(){
+	if(this.eventType == "init"){
+		var arr = $('[id^="'+this.reference+'-item-"]');
+		for(var i=0;i<arr.length;i++){
+			var path = $("#"+this.reference+"-item-"+i);
+			path.css("left",(i*60));
+		}
+	}
+	$("#"+this.reference+"-item-"+this.deactivated).removeClass("active");
+	$("#"+this.reference+"-item-"+this.activated).addClass("active");
+	var path = $("#"+this.reference+"-item-"+this.activated);
+	path.animate({marginTop:-40},{queue:true, duration:100, specialEasing: {marginTop:bez}});
+	path.animate({marginTop:10},{queue:true, duration:600, specialEasing: {marginTop:bez}});
+}
+example11.mouseover.onEvent = function(){
+	var arr = this.multiActivated;
+	for(var i=0;i<arr.length;i++){
+		var depth = Math.abs(example11.mapDistanceReverse(this.multiPlus, i, arr.length, 0));
+		var scale = 1+depth/6;
+		var path = $("#"+this.reference+"-item-"+arr[i]);
+		path.css("z-index",depth);
+		path.stop().animate({transformJ:'scaleX('+scale+') scaleY('+scale+')'},{queue:true, duration:400, specialEasing: {transformJ:bez}});
+		path.animate({marginTop:10},{queue:false, duration:400, specialEasing: {marginTop:bez}});
+	}
+}
+example11.mouseout.onEvent = function(){
+	var arr = this.multiActivated;
+	for(var i=0;i<arr.length;i++){
+		var scale = 1;
+		var path = $("#"+this.reference+"-item-"+arr[i]);
+		path.css("z-index", i);
+		path.stop().animate({transformJ:'scaleX('+scale+') scaleY('+scale+')'},{queue:true, duration:400, specialEasing: {transformJ:bez}});
+		path.animate({marginTop:10},{queue:false, duration:400, specialEasing: {marginTop:bez}});
+	}
+}
+example11.init();
+
+</script>
+
+<h1>... dropdowns and selectable lists ...</h1>
+
+<div id="example12-item-0"><div style="display:block;position:relative;">0</div>
+	<div id="example13-item-0">0</div><div id="example13-item-1">1</div><div id="example13-item-2">2</div><div id="example13-item-3">3</div>
+</div>
+<div id="example12-item-1"><div style="display:block;position:relative;">1</div>
+	<div id="example13-item-4">4</div><div id="example13-item-5">5</div><div id="example13-item-6">6</div><div id="example13-item-7">7</div>
+</div>
+<div id="example12-item-2"><div style="display:block;position:relative;">2</div>
+	<div id="example13-item-8">8</div><div id="example13-item-9">9</div>
+</div>
+<div id="example12-item-3"><div style="display:block;position:relative;">3</div>
+	<div id="example13-item-10">10</div><div id="example13-item-11">11</div>
+</div>
+<div id="example12-item-4"><div style="display:block;position:relative;">4</div>
+	<div id="example13-item-12">12</div>
+</div>
+
+<div style="clear:both;"></div>
+
+<div id="example13output" style="margin:10px;"></div>
+
+
+<script type="text/javascript">
+
+var example12 = new Mg({
+	reference:"example12",
+	click:{
+		activated:[],
+		interactive:true,
+		deactivable:true,
+		maxActivated:Infinity,
+		multiLess:2, multiPlus:2
+	}
+});
+example12.click.onEvent = function(){
+	$("#"+this.reference+"-item-"+this.deactivated).removeClass("active");
+	for(var i=0;i<this.activated.length;i++){
+		var path=$("#"+this.reference+"-item-"+this.activated[i]);
+		path.addClass("active");
+	}
+	//
+	var last_activated = this.reference+"-item-"+this.activated[0];
+	var path = $('[id^="'+last_activated+'"]');
+	var path2 = $('[id^="'+last_activated+'"]').children();
+	var h = (path2.length)*48-20;
+	path.stop().animate({height:h},{queue:true, duration:400, specialEasing: {height:bez}});
+	//
+	var last_activated = this.reference+"-item-"+this.deactivated;
+	var path = $('[id^="'+last_activated+'"]');
+	var h = 16;
+	path.stop().animate({height:h},{queue:true, duration:400, specialEasing: {height:bez}});
+}
+example12.init();
+
+//
+
+$('[id^="example13-item-"]').css("left",10);
+
+var example13 = new Mg({
+	reference:"example13",
+	click:{
+		activated:[],
+		interactive:true,
+		deactivable:true,
+		maxActivated:Infinity,
+		multiLess:2, multiPlus:2
+	}
+});
+example13.click.onEvent = function(){
+	var sel = "Selected: "; // output
+	for(var i=0;i<this.activated.length;i++){
+		var path=$("#"+this.reference+"-item-"+this.activated[i]);
+		path.addClass("active");
+		sel+=this.activated[i]+" "; // output
+	}
+	if(this.activated.length==0){sel+="Nothing";} // output
+	$("#example13output").text(sel); // output
+	$("#"+this.reference+"-item-"+this.deactivated).removeClass("active");
+}
+example13.init();
+
+</script>
+
+<h1>... fancy buttons and lists ...</h1>
+
+<div style="display:block;position:relative;">
+	<div id="example14-item-0">0</div>
+	<div id="example14-item-1">1</div>
+	<div id="example14-item-2">2</div>
+	<div id="example14-item-3">3</div>
+	<div id="example14-item-4">4</div>
+	<div id="example14-item-5">5</div>
+	<div id="example14-item-6">6</div>
+	<div id="example14-item-7">7</div>
+	<div id="example14-item-8">8</div>
+</div>
+	
+<div style="display:block;position:relative;margin-left:200px;">
+	<div id="example15-item-0">0</div>
+	<div id="example15-item-1">1</div>
+	<div id="example15-item-2">2</div>
+	<div id="example15-item-3">3</div>
+	<div id="example15-item-4">4</div>
+	<div id="example15-item-5">5</div>
+	<div id="example15-item-6">6</div>
+	<div id="example15-item-7">7</div>
+	<div id="example15-item-8">8</div>
+</div>
+
+<div style="clear:both;height:250px;"></div>
+
+<script type="text/javascript">
+
+var example14 = new Mg({
+	reference:"example14",
+	click:{
+		interactive:true,
+		multiLimit:false,
+		multiLess:8, multiPlus:8
+	},
+	mouseenter:{
+		interactive:true,
+		multiLimit:false,
+		multiLess:8, multiPlus:8
+	},
+	mouseleave:{
+		interactive:true,
+		multiLimit:false,
+		multiLess:8, multiPlus:8
+	}
+});
+example14.click.onEvent = function(){
+	if(this.eventType == "init"){
+		var arr = $('[id^="'+this.reference+'-item-"]');
+		for(var i=0;i<arr.length;i++){
+			var path = $("#"+this.reference+"-item-"+i);
+			path.css("top",(i*28)).css("position", "absolute").css("width", 100);
+		}
+	}else{
+		$("#"+this.reference+"-item-"+this.deactivated).removeClass("active");
+		$("#"+this.reference+"-item-"+this.activated).addClass("active");	
+	}
+}
+example14.mouseenter.onEvent = function(){
+	var arr = this.multiActivated;
+	for(var i=0;i<arr.length;i++){
+		var depth = example14.mapDistance(this.multiLess, i, arr.length, 0);
+		var depth2 = example14.mapDistanceReverse(this.multiPlus, i, arr.length, 0);
+		var path = $("#"+this.reference+"-item-"+arr[i]);
+		path.css("z-index",Math.abs(depth2)+this.multiPlus);
+		path.stop().animate({transformJ:'rotate('+(-depth*6)+'deg)'},{queue:true, duration:400, specialEasing: {transformJ:bez}});
+		path.animate({marginTop:depth*2},{queue:false, duration:400, specialEasing: {marginTop:bez}});
+		if(arr[i]==this.activated){
+			path.animate({marginLeft:-10},{queue:false, duration:400, specialEasing: {marginLeft:bez}});
+		}else{
+			path.animate({marginLeft:0},{queue:false, duration:400, specialEasing: {marginLeft:bez}});
+		}
+	}
+}
+example14.mouseleave.onEvent = function(){
+	var arr = this.multiActivated;
+	for(var i=0;i<arr.length;i++){
+		var rotation = 0;
+		var path = $("#"+this.reference+"-item-"+arr[i]);
+		path.css("z-index", i);
+		path.stop().animate({transformJ:'rotate('+rotation+'deg)'},{queue:true, duration:400, specialEasing: {transformJ:bez}});
+		path.animate({marginTop:0},{queue:false, duration:400, specialEasing: {marginTop:bez}});
+		path.animate({marginLeft:0},{queue:false, duration:400, specialEasing: {marginLeft:bez}});
+	}
+}
+example14.init();
+
+//
+
+var example15 = new Mg({
+	reference:"example15",
+	click:{
+		activated:[],
+		interactive:true,
+		multiLess:3, multiPlus:3
+	},
+	mouseenter:{
+		activated:[],
+		interactive:true,
+		multiLess:3, multiPlus:3
+	},
+	mouseleave:{
+		activated:[],
+		interactive:true,
+		multiLess:3, multiPlus:3
+	}
+});
+example15.click.onEvent = function(){
+	if(this.eventType == "init"){
+		var arr = $('[id^="'+this.reference+'-item-"]');
+		for(var i=0;i<arr.length;i++){
+			var path = $("#"+this.reference+"-item-"+i);
+			path.css("top",(i*28)).css("position", "absolute").css("width", 100);
+		}
+	}else{
+		$("#"+this.reference+"-item-"+this.deactivated).removeClass("active");
+		$("#"+this.reference+"-item-"+this.activated).addClass("active");
+	}
+}
+example15.mouseenter.onEvent = function(){
+	var arr = this.multiActivated;
+	for(var i=0;i<arr.length;i++){
+		var depth = Math.abs(example15.mapDistanceReverse(this.multiPlus, i, arr.length, 0));
+		var scale = 1+depth/10;
+		var path = $("#"+this.reference+"-item-"+arr[i]);
+		path.css("z-index",depth);
+		path.stop().animate({transformJ:'scaleX('+scale+') scaleY('+scale+')'},{queue:true, duration:400, specialEasing: {transformJ:bez}});
+	}
+}
+example15.mouseleave.onEvent = function(){
+	var arr = this.multiActivated;
+	for(var i=0;i<arr.length;i++){
+		var scale = 1;
+		var path = $("#"+this.reference+"-item-"+arr[i]);
+		path.css("z-index", i);
+		path.stop().animate({transformJ:'scaleX('+scale+') scaleY('+scale+')'},{queue:true, duration:400, specialEasing: {transformJ:bez}});
+	}
+}
+example15.init();
+
+</script>
+
+<h1>... and many more.</h1>
+
+<h1></h1>
+
+</body>
+</html>

@@ -1,0 +1,204 @@
+
+<!-- In all the code replace "reference" with the reference name you want, just keep the same -prev -next -dragIn -dragOut -item-0 -item-1 etc... add or remove items as needed -->
+<!-- In all the html and javascript code replace "click" with the javascript event name you want to use: click, dblclick, mousedown, mouseup, mousemove, mouseenter OR mouseover, mouseleave OR mouseout, touchstart, touchend, touchcancel, touchleave, touchmove, focus -->
+
+<div id="reference-click-first">First</div>
+<div id="reference-click-prev">Prev</div>
+<div id="reference-item-0">0</div>
+<div id="reference-item-1">1</div>
+<div id="reference-item-2">2</div>
+<div id="reference-item-3">3</div>
+<div id="reference-click-next">Next</div>
+<div id="reference-click-last">Last</div>
+<div id="reference-click-dragOut"><div id="reference-click-dragIn"><!-- For galleries without items put scrollable content here --></div></div>
+<div id="reference-click-scrollOut"><div id="reference-click-scrollIn"></div></div>
+
+<script src="mg.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+
+var mgObject = new Mg({
+	reference:"reference",
+	totalItems:10, // needed only on galleries without items
+	click:{
+		activated:[0],
+		maxActivated:Infinity,
+		deactivable:true,
+		interactive:true,
+		cycle:true,
+		prevSteps:1, nextSteps:1,
+		firstToSteps:true, lastToSteps:true,
+		
+		multiLess:2, multiPlus:2,
+		multiMode:'centered', // 'centered' 'fixed' 'flexible'
+		fixedLess:0, fixedPlus:0, // only with multiMode 'fixed'
+		
+		auto:1000, autoSlow:5000, autoInverse:true,
+		anchorize:"useAnchor", // "useAnchor" or "useLinkHash" or "useLinkUrl"
+		preventDefault:true,
+		linked:[otherMgObject.click], linkedMultiply:2,
+		inverse:true,
+
+		scrollIsVertical:true, scrollInvert:true, scrollFriction:0.8, scrollPower:0.7, scrollFurther:0.2, scrollFraction:true, scrollWheel:true, scrollCursorOff:"pointer", scrollCursorOn:"pointer",
+		dragIsVertical:true, dragInvert:true, dragFriction:0.8, dragPower:0.7, dragFurther:0.2, dragFraction:true, dragWheel:true, dragCursorOff:"move", dragCursorOn:"move",
+		disableFriction:true, rounding:"floor"
+	}
+});
+
+mgObject.click.onEvent = function(){
+	if(this.eventType == "init"){ // eventType can be "init" "item" "prev" "next" "first" "last" "automatic" "anchor" "scroll" "drag" or custom, when it's a linked call propagation the eventType is preceded by "linked"
+		/* Jquery example
+		$('[id^="'+this.reference+'-item-"]').each(function(i){
+			var path = $(this);
+		});
+		*/
+	}else{
+	}
+	/* Jquery example
+	// activate and deactivate
+	$("#"+this.reference+"-item-"+this.deactivated).removeClass("active").trigger('mouseleave');
+	$("#"+this.reference+"-item-"+this.activated).addClass("active").trigger('mouseenter');
+	// loop multi
+	var arr = this.multiBeforeOut;
+	for(var i=0;i<arr.length;i++){
+		var path = $("#"+this.reference+"-item-"+arr[i]);
+	}
+	var arr = this.multiAfterOut;
+	for(var i=0;i<arr.length;i++){
+		var path = $("#"+this.reference+"-item-"+arr[i]);
+	}
+	var arr = this.multiBeforeIn;
+	for(var i=0;i<arr.length;i++){
+		var path = $("#"+this.reference+"-item-"+arr[i]);
+	}
+	var arr = this.multiAfterIn;
+	for(var i=0;i<arr.length;i++){
+		var path = $("#"+this.reference+"-item-"+arr[i]);
+	}
+	var arr = this.multiActivated;
+	for(var i=0;i<arr.length;i++){
+		var path = $("#"+this.reference+"-item-"+arr[i]);
+	}*/
+}
+
+/* prev next first last interactions */
+mgObject.click.prevHide = function(){
+	/* Jquery selector
+	var path = $("#"+this.reference+"-"+this.evnt+"-prev");
+	path.css("cursor","default").removeClass("active");
+	var path = $("#"+this.reference+"-"+this.evnt+"-first");
+	path.css("cursor","default").removeClass("active");*/
+}
+mgObject.click.prevShow = function(){
+	/* Jquery selector
+	var path = $("#"+this.reference+"-"+this.evnt+"-prev");
+	path.css("cursor","pointer").addClass("active");
+	var path = $("#"+this.reference+"-"+this.evnt+"-first");
+	path.css("cursor","pointer").addClass("active");*/
+}
+mgObject.click.nextHide = function(){
+	/* Jquery selector
+	var path = $("#"+this.reference+"-"+this.evnt+"-next");
+	path.css("cursor","default").removeClass("active");
+	var path = $("#"+this.reference+"-"+this.evnt+"-last");
+	path.css("cursor","default").removeClass("active");*/
+}
+mgObject.click.nextShow = function(){
+	/* Jquery selector
+	var path = $("#"+this.reference+"-"+this.evnt+"-next");
+	path.css("cursor","pointer").addClass("active");
+	var path = $("#"+this.reference+"-"+this.evnt+"-last");
+	path.css("cursor","pointer").addClass("active");*/
+}
+mgObject.click.prevClick = function(){
+	/* Jquery selector
+	$("#"+this.reference+"-"+this.evnt+"-prev");*/
+}
+mgObject.click.nextClick = function(){
+	/* Jquery selector
+	$("#"+this.reference+"-"+this.evnt+"-next");*/
+}
+mgObject.click.firstClick = function(){
+	/* Jquery selector
+	$("#"+this.reference+"-"+this.evnt+"-first");*/
+}
+mgObject.click.lastClick = function(){
+	/* Jquery selector
+	$("#"+this.reference+"-"+this.evnt+"-last");*/
+}
+
+/* scroll and drag interactions */
+mgObject.click.scrollClick = function(){
+	/* Jquery example
+	var mypath = $("#"+this.reference+"-click-scrollIn");
+	mypath.addClass("active");*/
+}
+mgObject.click.scrollMove = function(){
+	this.dragged; this.position;
+	/* Jquery example
+	var mypath = $("#"+this.reference+"-click-scrollIn");
+	mypath.clearQueue().stop();*/
+}
+mgObject.click.scrollRelease = function(){
+	this.dragged; this.position;
+	/* Jquery example
+	var mypath = $("#"+this.reference+"-click-scrollIn");
+	mypath.removeClass("active");
+	mypath.clearQueue().stop().animate({left:this.position},{queue:false, duration:300, specialEasing: { left:'easeOutExpo'}});*/
+}
+mgObject.click.dragClick = function(){
+}
+mgObject.click.dragMove = function(){
+	this.dragged; this.position;
+}
+mgObject.click.dragRelease = function(){
+	this.dragged; this.position;
+	/* Jquery example
+	var mypath = $("#"+this.reference+"-click-dragIn");
+	mypath.clearQueue().stop().animate({left:this.position},{queue:false, duration:300, specialEasing: { left:'easeOutExpo'}});*/
+}
+
+/* utils */
+transition.css // the Css transition prefix if supported by the browser
+transition.js // the Javascript transition prefix if supported by the browser
+transition.jsEnd // the Javascript event name of transition end
+transform.css // the Css transform prefix if supported by the browser
+transform.js // the Javascript transform prefix if supported by the browser
+perspective.css // the Css perspective prefix if supported by the browser
+perspective.js // the Javascript perspective prefix if supported by the browser
+
+/* initialization */
+mgObject.init();
+
+
+
+/* other available functions */
+mgObject.init();
+mgObject.setSettings({}); // you can set setting with this same structure as the class constructor example below
+mgObject.setSettings({
+	click:{
+		linked:[otherMgObject.click]
+	}
+});
+mgObject.refreshItems();
+mgObject.refreshScrollDrag();
+history.pushState({'url':url, 'title':title}, null, url); // changes pushstate when using anchorize "useLinkUrl"
+mgObject.setState(num:number, evnt:string, alsoLinked:boolean, alsoScroll:boolean, alsoDrag:boolean, pauseAuto:boolean, eventType:string); // set a state in a event, null in the num to deactivate the gallery event, undefined in the num to leave the same activation
+/* you can pass custom onEvent calls this way (for example have custom window.onresize calls or a end call to animate how the gallery closes..), for example: */
+mgObject.setState(null, "click", true, true, true, false, "mycustomtype"); /* and have on the onEvent function: if(this.eventType == "mycustomtype"){} */
+mgObject.autoStart(evnt:string);
+mgObject.autoSlow(evnt:string);
+mgObject.autoStop(evnt:string);
+mgObject.click.autoInverse = true; mgObject.autoStart("click"); // this to invert automatic
+mgObject.mapNum(num:number, less:number, plus:number, max:number, cycle:boolean); // returns a maps a serie of numbers based on num +- add, between 0 and max (ex: 4, 5, 0, 1, 2)
+mgObject.mapDistance(center:number, num:number); // returns the distance between num and center, with center having the lowest number, based on max and min (ex: 2,1,0,1,2)
+mgObject.mapDistanceReverse(center:number, num:number, max:number, min:number); // returns the reverse distance between num and center, with center having the highest number, based on max and min (ex: 0,1,2,1,0)
+mgObject.findNearestDistance(i:number, z:number, max:number, cycle:boolean); // returns the nearest distance between i and z, considering values from 0 to max
+window.onfocus = function(){mgObject.autoStart(evnt:string);}; // start automatic when the page get focus
+window.onblur = function(){mgObject.autoStop(evnt:string);}; // stops automatic when the page lose focus
+
+// to do a pushstate when using anchorize:"useAnchor"
+window.history.pushState({'url':url, 'title':title}, title, url);
+window.onpushstate({'url':url, 'title':title}, title, url);
+
+</script>
