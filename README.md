@@ -1,4 +1,3 @@
-
 # [minimit-gallery](http://www.minimit.com/projects/code/minimit-gallery-plugin)
 #### Javascript plugin to create complex interactions
 
@@ -20,6 +19,40 @@ This is still an experimental plugin, with an API subject to change in the futur
 
 Usage
 -----
+``` html
+<!-- specify the html items -->
+<div id="reference-item-0">0</div>
+<div id="reference-item-1">1</div>
+<div id="reference-item-2">2</div>
+<div id="reference-item-3">3</div>
+<div id="reference-item-4">4</div>
+<div id="reference-item-5">5</div>
+
+<!-- include mg Javascript code -->
+<script type="text/javascript" src="mg.min.js"></script>
+
+<script type="text/javascript">
+// construct gallery
+var mgObject = new Mg({
+    reference:"reference",
+    click:{
+        activated:[0],
+        cycle:true,
+        interactive:true,
+        maxActivated:1,
+        auto:1000, autoSlow:5000
+    }
+});
+
+// specify gallery click event function
+mgObject.click.onEvent = function(){
+    document.getElementById("#"+this.reference+"-item-"+this.deactivated).className = '';
+    document.getElementById("#"+this.reference+"-item-"+this.activated).className = 'active';
+}
+
+// init the gallery
+mgObject.init();
+```
 
 License
 -------
