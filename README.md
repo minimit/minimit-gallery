@@ -1,7 +1,6 @@
-minimit-gallery
-===============
 
-Javascript plugin to create complex interactions
+# [minimit-gallery](http://www.minimit.com/projects/code/minimit-gallery-plugin)
+#### Javascript plugin to create complex interactions
 
 My website [minimit.com](http://www.minimit.com) and my [twitter](http://twitter.com/beaver82minimit)
 
