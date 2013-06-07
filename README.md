@@ -17,6 +17,10 @@ Alert
 -------
 This is still an experimental plugin, with an API subject to change in the future. If you have new ideas how to make the code simpler and with fewer settings, please drop me a line.
 
+Api
+-----
+See the [2.0 guide](http://www.minimit.com/articles/code-tips/minimit-gallery-2-0-guide).
+
 Usage
 -----
 ``` html
