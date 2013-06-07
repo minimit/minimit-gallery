@@ -52,6 +52,7 @@ mgObject.click.onEvent = function(){
 
 // init the gallery
 mgObject.init();
+</script>
 ```
 
 License
