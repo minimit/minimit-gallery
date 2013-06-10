@@ -5,8 +5,8 @@ My website [minimit.com](http://www.minimit.com) and my [twitter](http://twitter
 
 Description
 -------
-Minimit Gallery is a custom slider plugin. It supports drags, scrollers, touch interactions, hash and
-pushstate links.
+**Minimit Gallery is a custom slider plugin. It supports drags, scrollers, touch interactions, hash and
+pushstate links.**
 
 It is a library agnostic javascript plugin, built for advanced frontend developers, who wants to spend less time coding the logic, and more time coding the animations.
 
