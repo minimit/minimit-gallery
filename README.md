@@ -61,6 +61,4 @@ mgObject.init();
 
 License
 -------
-Licensed under MIT licenses.
-
-© 2013 Minimit
+© 2013 Minimit. Licensed under [MIT license](http://www.opensource.org/licenses/mit-license.php).
