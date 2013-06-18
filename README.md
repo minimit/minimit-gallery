@@ -3,6 +3,9 @@
 
 My website [minimit.com](http://www.minimit.com) and my [twitter](http://twitter.com/beaver82minimit)
 
+## Browser support
+IE7+, Firefox 3.5+, Safari 3+, Opera 9+, Chrome, Iphone, Ipad, Android, Windows Phone.
+
 Description
 -------
 **Minimit Gallery is a custom slider plugin. It supports drags, scrollers, touch interactions, hash and
