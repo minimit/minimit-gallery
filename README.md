@@ -3,7 +3,7 @@
 
 My website [minimit.com](http://www.minimit.com) and my [twitter](http://twitter.com/beaver82minimit)
 
-## Browser support
+### Browser support
 IE7+, Firefox 3.5+, Safari 3+, Opera 9+, Chrome, Iphone, Ipad, Android, Windows Phone.
 
 Description
