@@ -1,10 +1,5 @@
 # [minimit-gallery](http://www.minimit.com/projects/code/minimit-gallery-plugin)
-#### Javascript plugin to create complex interactions
 
-My website [minimit.com](http://www.minimit.com) and my [twitter](http://twitter.com/beaver82minimit)
-
-Description
--------
 **Minimit Gallery is a custom slider plugin. It supports drags, scrollers, touch interactions, hash and
 pushstate links.**
 
@@ -15,6 +10,11 @@ To understand how to use this plugin see the [2.0 guide](http://www.minimit.com/
 
 #### Browser support
 IE7+, Firefox 3.5+, Safari 3+, Opera 9+, Chrome, Iphone, Ipad, Android, Windows Phone.
+
+#### [Guide](http://www.minimit.com/articles/code-tips/minimit-gallery-2-0-guide)
+
+My website [minimit.com](http://www.minimit.com) and my [twitter](http://twitter.com/beaver82minimit).
+
 
 Alert
 -------
@@ -62,6 +62,6 @@ mgObject.init();
 </script>
 ```
 
-License
+Acknowledgements
 -------
-© 2013 Minimit. Licensed under [MIT license](http://www.opensource.org/licenses/mit-license.php).
+Copyright © 2013 Riccardo Caroli. Licensed under [MIT license](http://www.opensource.org/licenses/mit-license.php).
