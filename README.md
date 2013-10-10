@@ -9,7 +9,7 @@ It’s very customizable, but you have to code the animation, all the css, and s
 To understand how to use this plugin see the [2.0 guide](http://www.minimit.com/articles/code-tips/minimit-gallery-2-0-guide) and the demo page.
 
 #### Browser support
-IE7+, Firefox 3.5+, Safari 3+, Opera 9+, Chrome, Iphone, Ipad, Android, Windows Phone.
+IE7+, Firefox 3.5+, Safari 3+, Chrome, Ios, Android.
 
 #### [Guide](http://www.minimit.com/articles/code-tips/minimit-gallery-2-0-guide)
 
