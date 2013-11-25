@@ -1,4 +1,7 @@
 
+Version 2.0.9
+* fixed bug with automatic on window focus and blur
+
 Version 2.08
 * added stopPropagation on events
 * fixed but preventing page scroll with drag and scroll on ios

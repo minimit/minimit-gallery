@@ -1,5 +1,5 @@
 /*
- * minimit-gallery 2.08
+ * minimit-gallery 2.0.9
  * http://github.com/minimit/minimit-gallery
  * Copyright (C) 2013 by Riccardo Caroli http://www.minimit.com
  * Licensed under the MIT license http://www.opensource.org/licenses/mit-license.php
@@ -242,17 +242,6 @@ Mg.prototype.init = function(eventType){
 		// start automatic
 		if(thisEvnt.auto != undefined){
 			this.autoStart(evnt);
-			// update mg_automaticArr with new data
-			var o = {that:this, evnt:evnt}
-			var found = false;
-			for(var z=0, len2=window.mg_automaticArr.length; z<len2; z++){
-				var o2 = window.mg_automaticArr[z];
-				if(o2.that.reference == o.that.reference && o2.evnt == o.evnt){
-					found = true;
-					break;
-				}
-			}
-			if(!found){mg_automaticArr.push(o);}
 		}
 	}
 	// inited
@@ -672,6 +661,17 @@ Mg.prototype.onAutoStart = function(evnt){
 	if(this[evnt].onAutoStart != undefined){
 		this[evnt].onAutoStart();
 	}
+	// add to mg_automaticArr
+	var o = {that:this, evnt:evnt}
+	var found = false;
+	for(var z=0, len2=window.mg_automaticArr.length; z<len2; z++){
+		var o2 = window.mg_automaticArr[z];
+		if(o2.that.reference == o.that.reference && o2.evnt == o.evnt){
+			found = true;
+			break;
+		}
+	}
+	if(!found){mg_automaticArr.push(o);}
 };
 
 /*
