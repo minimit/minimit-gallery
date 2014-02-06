@@ -1,4 +1,7 @@
 
+Version 2.0.10
+* fixed a bug when dragging with css3 transform animations
+
 Version 2.0.9
 * fixed bug with automatic on window focus and blur
 

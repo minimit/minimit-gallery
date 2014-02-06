@@ -1,5 +1,5 @@
 /*
- * minimit-gallery 2.0.9
+ * minimit-gallery 2.0.10
  * http://github.com/minimit/minimit-gallery
  * Copyright (C) 2013 by Riccardo Caroli http://www.minimit.com
  * Licensed under the MIT license http://www.opensource.org/licenses/mit-license.php
@@ -1363,8 +1363,8 @@ Mg.prototype.addScrollDrag = function(evnt, itemIn, itemOut, min, max, vertical,
 		target.count = 0;
 		target.startPosX = e.clientX;
 		target.startPosY = e.clientY;
-		var transform = target.mg.getTransform(target);
 		//
+		var transform = target.mg.getTransform(target);
 		if(!target.vertical){
 			if(!transform){
 				target.offsetPos = target.offsetLeft;
@@ -1380,6 +1380,12 @@ Mg.prototype.addScrollDrag = function(evnt, itemIn, itemOut, min, max, vertical,
 			}
 			itemIn.swipeDist = target.itemOut.offsetHeight/target.concurrent;
 		}
+		// transform fix
+		if(target.itemIn.instantOffsetPos){
+			target.offsetPos = target.itemIn.instantOffsetPos;
+			target.itemIn.instantOffsetPos = null;
+		}
+		// set nums
 		target.num = target.offsetPos;
 		target.startnum = target.num;
 		//
@@ -1545,9 +1551,10 @@ Mg.prototype.addScrollDrag = function(evnt, itemIn, itemOut, min, max, vertical,
 				target.itemIn.startPosX = e.clientX;
 				target.itemIn.startPosY = e.clientY;
 				num = target.mg.scCheckLimits(num, target.isScroll, 0, target.min, target.max);
+				target.itemIn.instantOffsetPos = num; // transform fix
 				target.mg.scReleaseSet(target, num);
 				if(e.type == "touchstart"){target.itemIn.ontouchstart();}else{target.itemIn.onmousedown();}
-				target.itemIn.offsetPos = num; // firefox fix
+				//target.itemIn.OffsetPos = num; // firefox fix
 			}
 			return false;
 		}
