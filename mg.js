@@ -1,8 +1,9 @@
-/*
- * minimit-gallery 2.0.10
- * http://github.com/minimit/minimit-gallery
- * Copyright (C) 2013 by Riccardo Caroli http://www.minimit.com
- * Licensed under the MIT license http://www.opensource.org/licenses/mit-license.php
+/**
+ * @copyright Copyright (C) 2013-2014 by Riccardo Caroli
+ * @version    Minimit Gallery v2.0.10
+ * @link       http://github.com/minimit/minimit-gallery
+ * @author     Riccardo Caroli http://www.minimit.com
+ * @license    Licensed under the MIT license http://www.opensource.org/licenses/mit-license.php
  */
 /*
  * Minimit Gallery constructor
