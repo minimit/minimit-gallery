@@ -1,7 +1,6 @@
 # Minimit Gallery
 
-**Minimit Gallery is a custom slider plugin. It supports drags, scrollers, touch interactions, hash and
-pushstate links.**
+**Plugin to build advanced interactive elements like sliders and galleries**
 
 It is a library agnostic javascript plugin, built for advanced frontend developers, who wants to spend less time coding the logic, and more time coding the animations.
 
