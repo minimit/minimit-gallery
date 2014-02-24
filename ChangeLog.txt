@@ -1,4 +1,7 @@
 
+Version 2.1.0
+* added arguments to disable scroll and drag with dragDisable and scrollDisable
+
 Version 2.0.10
 * fixed a bug when dragging with css3 transform animations
 
