@@ -1,4 +1,4 @@
-# minimit-gallery
+# Minimit Gallery
 
 **Minimit Gallery is a custom slider plugin. It supports drags, scrollers, touch interactions, hash and
 pushstate links.**
