@@ -1,6 +1,6 @@
 /**
  * @copyright Copyright (C) 2013-2014 by Riccardo Caroli
- * @version    Minimit Gallery v2.1.0
+ * @version    Minimit Gallery v2.1.1
  * @link       http://github.com/minimit/minimit-gallery
  * @author     Riccardo Caroli http://www.minimit.com
  * @license    Licensed under the MIT license http://www.opensource.org/licenses/mit-license.php
@@ -40,7 +40,7 @@
  *  @param settings.eventName.linkedmultiply:number [Default:1] - number to multiply the activation of linked galleries
  *  @param settings.eventName.inverse:boolean [Default:false] - if the items count are inversed
  *  ------------------- Scroll and Drag arguments
- *  @param settings.eventName.scrollDisable:boolean [Default:false] - disable scroll
+ *  @param settings.eventName.scrollOnlyTouch:boolean [Default:false] - if the scroll is only on touch
  *  @param settings.eventName.scrollIsVertical:boolean [Default:false] - if the scroll is vertical
  *  @param settings.eventName.scrollInvert:boolean [Default:false] - inverts the scroll
  *  @param settings.eventName.scrollFriction:number [Default:0] - factor of scroll inertia: use a number between 0 and 1
@@ -50,7 +50,7 @@
  *  @param settings.eventName.scrollWheel:boolean [Default:false] - implement mouse wheel support on scroll
  *  @param settings.eventName.scrollCursorOff:string - what cursor to assign as css style
  *  @param settings.eventName.scrollCursorOn:string - what cursor to assign as css style
- *  @param settings.eventName.dragDisable:boolean [Default:false] - disable drag
+ *  @param settings.eventName.dragOnlyTouch:boolean [Default:false] - if the drag is only on touch
  *  @param settings.eventName.dragIsVertical:boolean [Default:false] - if the drag is vertical
  *  @param settings.eventName.dragInvert:boolean [Default:false] - inverts the drag
  *  @param settings.eventName.dragFriction:number [Default:0.85] - factor of drag inertia: use a number between 0 and 1
@@ -460,7 +460,7 @@ Mg.prototype.initScrollDrag = function(onlyrefresh){
 					// fire release without num
 					if(onlyrefresh){
 						this.scRelease(itemOut);
-					}else if(!thisEvnt.scrollDisable){
+					}else if(!thisEvnt.scrollOnlyTouch){
 						this.disableTextSelect(itemIn, true);
 						this.disableTextSelect(itemOut, true);
 					}
@@ -477,7 +477,7 @@ Mg.prototype.initScrollDrag = function(onlyrefresh){
 					// fire release without num
 					if(onlyrefresh){
 						this.scRelease(itemIn);
-					}else if(!thisEvnt.dragDisable){
+					}else if(!thisEvnt.dragOnlyTouch){
 						this.disableTextSelect(itemIn, true);
 						this.disableTextSelect(itemOut, false);
 					}
@@ -1515,9 +1515,12 @@ Mg.prototype.addScrollDrag = function(evnt, itemIn, itemOut, min, max, vertical,
 		}
 	}
 	//
-	if(!this[evnt][scrollDragStr+"Disable"]){
+	if(!this[evnt][scrollDragStr+"OnlyTouch"]){
 		itemIn.onmousedown = itemIn.ontouchstart = itemInOnMouseDown;
 		itemIn.onmouseup = itemIn.ontouchend = itemInOnMouseUp;
+	}else{
+		itemIn.ontouchstart = itemInOnMouseDown;
+		itemIn.ontouchend = itemInOnMouseUp;
 	}
 	itemIn.evnt = evnt;
 	itemIn.mg = this;
@@ -1529,7 +1532,7 @@ Mg.prototype.addScrollDrag = function(evnt, itemIn, itemOut, min, max, vertical,
 	itemIn.friction = this[evnt][scrollDragStr+"Friction"];
 	itemIn.power = this[evnt][scrollDragStr+"Power"];
 	itemIn.further = this[evnt][scrollDragStr+"Further"];
-	if(!this[evnt][scrollDragStr+"Disable"]){
+	if(!this[evnt][scrollDragStr+"OnlyTouch"]){
 		itemIn.style.cursor = itemIn.mg[evnt][scrollDragStr+"CursorOff"];
 	}
 	//

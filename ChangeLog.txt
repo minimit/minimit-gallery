@@ -1,4 +1,8 @@
 
+Version 2.1.1
+* added arguments dragOnlyTouch and scrollOnlyTouch
+* removed dragDisable and scrollDisable
+
 Version 2.1.0
 * added arguments to disable scroll and drag with dragDisable and scrollDisable
 
