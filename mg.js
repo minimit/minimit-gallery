@@ -1,9 +1,9 @@
 /**
  * @copyright Copyright (C) 2013-2014 by Riccardo Caroli
- * @version    Minimit Gallery v2.1.1
- * @link       http://github.com/minimit/minimit-gallery
- * @author     Riccardo Caroli http://www.minimit.com
- * @license    Licensed under the MIT license http://www.opensource.org/licenses/mit-license.php
+ * @version   Minimit Gallery v2.1.2
+ * @link      http://github.com/minimit/minimit-gallery
+ * @author    Riccardo Caroli http://www.minimit.com
+ * @license   Licensed under the MIT license http://www.opensource.org/licenses/mit-license.php
  */
 /*
  * Minimit Gallery constructor
@@ -1051,19 +1051,18 @@ if(!!(window.history && window.history.pushState)){
 
 	mg_UrlEvntsArr = [];
 	
-	var mg_history = window.history; // firefox fix
+	var mg_history = window.history; // firefox fix 
 	var mg_pushState = window.history.pushState;
 	window.history.pushState = function(state, title, url, skipSetState){
 	    window.onpushstate({'state':state, 'title':title, 'url':url}, skipSetState);
 	    return mg_pushState.apply(mg_history, arguments);
 	}
-
-
-	window.onpopstate = window.onpushstate = function(state, skipSetState){
+	function mg_onpushpopstate(state, skipSetState){
+		// fix for starting page
 		if(!state.state){
-			// fix for starting page
 			window.history.pushState({'title':mg_startingTitle, 'url':mg_startingUrl}, mg_startingTitle, mg_startingUrl);
 		}
+		//
 		if(!skipSetState){
 			// loop registered events
 			for(var z=0, len2=window.mg_UrlEvntsArr.length; z<len2; z++){
@@ -1081,6 +1080,12 @@ if(!!(window.history && window.history.pushState)){
 				}
 			}
 		}
+	}
+	window.onpushstate = function(state, skipSetState){
+		mg_onpushpopstate(state, skipSetState);
+	}
+	window.onpopstate = function(state, skipSetState){
+		mg_onpushpopstate(state, skipSetState);
 	}
 
 }
