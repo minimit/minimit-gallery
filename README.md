@@ -1,4 +1,4 @@
-# ----- NO LONGER MANTAINED -----
+# ----- NO LONGER MAINTAINED -----
 
 # Minimit Gallery
 
