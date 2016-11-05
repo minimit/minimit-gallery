@@ -1,3 +1,5 @@
+# ----- NO LONGER MANTAINED -----
+
 # Minimit Gallery
 
 **Plugin to build advanced interactive elements like sliders and galleries**
